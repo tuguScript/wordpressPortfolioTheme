@@ -18,6 +18,10 @@
 @import "owl.carousel.scss";
 @import "owl.transitions.scss";
 
+#footer {
+  display: none;
+}
+
 .tcontainer {
   // border: 2px solid black;
   display: flex;
