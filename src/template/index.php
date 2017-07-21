@@ -19,39 +19,12 @@ get_header()
     <!-- Add your site or application content here -->
 
     <header class="header-two">
-        <!-- nav section -->
-        <div class="main-menu nav-tow">
-            <div id="rex-sticky">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 menu-section">
-                            <div class="navigation" role="banner">
-                                <div class="navigation-wrapper">
-
-                                    <div class="menu-button one-page">Menu</div>
-                                    <nav>
-                                        <ul id="navigation-menu" data-breakpoint="992" class="flexnav one-page">
-                                            <li><a href="">Home</a></li>
-                                            <li><a href="#about">About</a>
-                                                <li><a href="#skills">Skills</a></li>
-                                                <li><a href="#work">Work</a></li>
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="#contact">Contact</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+    <h1 id="test">hi</h1>
         <div class="hero">
             <div class="hero-inner">
                 <a href="" class="hero-logo"><img src="<?php bloginfo('template_url'); ?>/images/profile.png" alt="Logo Image" width="152" height="152"></a>
                 <div class="hero-copy">
-                    <h1><span>Hey, I’m</span> Tugi B</h1>
+                    <h1><span>Hey, I’m</span> Tugi</h1>
                     <h6>Photographer, Web Developer, Mobile app developer, Web Designer, Speaker, Writer</h6>
                     <div class="media-link">
                         <a href="https://twitter.com/tuguldur_01"><i class="fa fa-twitter-square"></i></a>

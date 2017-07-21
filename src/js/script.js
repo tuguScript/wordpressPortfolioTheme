@@ -1,290 +1,143 @@
-
-/*
- *----------------------------------------------------------------------
- * Functions
- *----------------------------------------------------------------------
- */
-
-/**
- * [removeModal to remove the Modal View]
- */
-function removeModal () {
-  'use strict';
-  $('.rex-modal').removeClass('rex-show').remove();
-  $('.rex-overlay').remove();
+function removeModal() {
+  "use strict";
+  $(".rex-modal").removeClass("rex-show").remove(), $(".rex-overlay").remove();
 }
-
-/**
- * Function for re arranging Heading for the featured portfolio.
- * @param  {[jquery object]} obj [description]
- */
-function moveH (obj) {
-  'use strict';
-  var h3 = obj.find('h3.rex-portfolio-name');
-  var h4 = obj.find('h4.rex-portfolio-category');
-  var hr = h3.next('hr');
-
-  h3.insertAfter(hr);
-  h4.insertBefore(hr);
-
-  return obj;
+function moveH(e) {
+  "use strict";
+  var i = e.find("h3.rex-portfolio-name"),
+    a = e.find("h4.rex-portfolio-category"),
+    o = i.next("hr");
+  return i.insertAfter(o), a.insertBefore(o), e;
 }
-
-
-// IIFE with jQuery Wrapper
-(function($) {
-  'use strict';
-
- // DOM Content Load Event Actions;
-  $( window ).load(function() {
-    $('div.loading').remove();
-    $('body').removeClass('loading');
-  });
-
-  /*
-   *----------------------------------
-   * Document Ready
-   *----------------------------------
-   */
-  $(document).ready(function() {
-
-
-  // Reference Slider
-  $('#reference').owlCarousel({
-    items: 2,
-    itemsDesktop: [1199,2],
-    itemsDesktopSmall: [979,2],
-    itemsTablet: [768,2],
-    // autoPlay: 3500,
-    pagination: true,
-    navigation: false,
-    navigationText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>']
-  });
-
-  if ( $('#skills').length ) {
-    $(window).on('scroll.skill', function() {
-      var hT = $('#skills').offset().top,
-      hH = $('#skills').outerHeight(),
-      wH = $(window).height(),
-      wS = $(this).scrollTop();
-      if (wS > (hT+hH-wH)){
-        $('.skillbar').each(function(){
-          $(this).find('.skillbar-bar').animate({
-          width:$(this).attr('data-percent')
-          },1500);
-        });
-        $(this).off('scroll.skill');
-      }
-    });
-  }
-
-  // flexNav
-
-  $('.flexnav').flexNav({
-    navArrow: '<i class="navicon fa fa-plus"></i>',
-    'animationSpeed' : 300
-  });
-
-
-
-  $(window).on('load', function () {
-    // Masonry
-    $('.grid').masonry({
-      // options...
-      itemSelector: '.grid-item'
-    });
-
-  });
-
-
-  // One Page Nav
-  $('#navigation-menu').onePageNav({
-    scrollThreshold: 0.8
-  });
-
-
-
-
-    // Sticky Nav
-    if( $( window ).width() > 1024 ){
-      // stellar prallax effect
-      $('#rex-sticky').sticky({topSpacing:0});
-    }
-
-    // blog Nav
-    if( $( window ).width() < 991 ){
-      $('#rex-blog-slider').owlCarousel({
-        items: 2,
-        itemsDesktop: [1199,2],
-        itemsDesktopSmall: [979,2],
-        itemsTablet: [768,2],
-        // autoPlay: 3500,
-        pagination: true,
-        navigation: false,
-        navigationText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>']
-      });
-
-      // Experience Section
-      $('#rex-experience-slider').owlCarousel({
-        items: 2,
-        itemsDesktop: [1199,2],
-        itemsDesktopSmall: [979,1],
-        itemsTablet: [768,1],
-        // autoPlay: 3500,
-        pagination: true,
-        navigation: false,
-        navigationText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>']
-      });
-
-
-      // Education Section
-      $('#rex-education-slider').owlCarousel({
-        items: 2,
-        itemsDesktop: [1199,2],
-        itemsDesktopSmall: [979,1],
-        itemsTablet: [768,1],
-        // autoPlay: 3500,
-        pagination: true,
-        navigation: false,
-        navigationText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>']
-      });
-
-    }
-
-
-  // scroll Up
-  $.scrollUp();
-
-  // Wow js
-  if( $( window ).width() > 1024 ){
-    // stellar prallax effect
-    new WOW().init();
-  }
-
-  $('#typeText').typed({
-    strings: ['Professional Photographer', 'Professional Web Designer', 'Professional Speaker', 'Professional Writer'],
-    typeSpeed: 100,
-    loop: true
-  });
-
-    // Activate Portfolio Filtering
-    var portfolios      = $('#rex-portfolios');
-    var figures         = portfolios.find('figure');
-    var filters         = $('div.portfolio-filter');
-    var first_portfolio = '';
-
-    figures.find('figcaption').addClass('animated');
-    filters.find('div').first().addClass('active');
-
-    filters.on('click', 'div.filter', function() {
-      // remove all animation properties
-      figures.removeAttr('style data-wow-delay').removeClass('animated fadeIn fadeInUp');
-      $('#portfolio-intro').removeAttr('style data-wow-delay').removeClass('animated fadeIn fadeInUp');
-
-      filters.find('.active').removeClass('active');
-      $(this).addClass('active');
-
-      var currentFilter = $(this).data('filter');
-
-      if (currentFilter === 'all') {
-        figures.hide();
-        $('#portfolio-intro').show().addClass('animated fadeIn');
-        $('.dom-featured').remove();
-        figures.show().addClass('animated fadeInUp');
-      }else{
-        figures.hide();
-        var i = 0;
-        $('.dom-featured').remove();
-        $('#portfolio-intro').hide();
-        $.each(figures, function(index, val) {
-          if ($(val).hasClass(currentFilter)) {
-            if (i === 0) {
-              first_portfolio = val;
-              i++;
-              return;
+!(function(e) {
+  "use strict";
+  e(window).load(function() {
+    e("div.loading").remove(), e("body").removeClass("loading");
+  }), e(document).ready(function() {
+    e("#reference").owlCarousel({
+      items: 2,
+      itemsDesktop: [1199, 2],
+      itemsDesktopSmall: [979, 2],
+      itemsTablet: [768, 2],
+      pagination: !0,
+      navigation: !1,
+      navigationText: [
+        '<i class="fa fa-angle-left"></i>',
+        '<i class="fa fa-angle-right"></i>'
+      ]
+    }), e("#skills").length &&
+      e(window).on("scroll.skill", function() {
+        var i = e("#skills").offset().top,
+          a = e("#skills").outerHeight(),
+          o = e(window).height();
+        e(this).scrollTop() > i + a - o &&
+          (
+            e(".skillbar").each(function() {
+              e(this)
+                .find(".skillbar-bar")
+                .animate({ width: e(this).attr("data-percent") }, 1500);
+            }),
+            e(this).off("scroll.skill")
+          );
+      }), e(".flexnav").flexNav({
+      navArrow: '<i class="navicon fa fa-plus"></i>',
+      animationSpeed: 300
+    }), e(window).on("load", function() {
+      e(".grid").masonry({ itemSelector: ".grid-item" });
+    }), e("#navigation-menu").onePageNav({
+      scrollThreshold: 0.8
+    }), e(window).width() > 1024 && e("#rex-sticky").sticky({ topSpacing: 0 }), e(window).width() < 991 && (e("#rex-blog-slider").owlCarousel({ items: 2, itemsDesktop: [1199, 2], itemsDesktopSmall: [979, 2], itemsTablet: [768, 2], pagination: !0, navigation: !1, navigationText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'] }), e("#rex-experience-slider").owlCarousel({ items: 2, itemsDesktop: [1199, 2], itemsDesktopSmall: [979, 1], itemsTablet: [768, 1], pagination: !0, navigation: !1, navigationText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'] }), e("#rex-education-slider").owlCarousel({ items: 2, itemsDesktop: [1199, 2], itemsDesktopSmall: [979, 1], itemsTablet: [768, 1], pagination: !0, navigation: !1, navigationText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'] })), e.scrollUp(), e(window).width() > 1024 && new WOW().init(), e("#typeText").typed({ strings: ["Professional Photographer", "Professional Web Designer", "Professional Speaker", "Professional Writer"], typeSpeed: 100, loop: !0 });
+    var i = e("#rex-portfolios").find("figure"),
+      a = e("div.portfolio-filter"),
+      o = "";
+    i
+      .find("figcaption")
+      .addClass(
+        "animated"
+      ), a.find("div").first().addClass("active"), a.on(
+      "click",
+      "div.filter",
+      function() {
+        i
+          .removeAttr("style data-wow-delay")
+          .removeClass("animated fadeIn fadeInUp"), e("#portfolio-intro")
+          .removeAttr("style data-wow-delay")
+          .removeClass("animated fadeIn fadeInUp"), a
+          .find(".active")
+          .removeClass("active"), e(this).addClass("active");
+        var t = e(this).data("filter");
+        if ("all" === t)
+          i.hide(), e("#portfolio-intro").show().addClass("animated fadeIn"), e(
+            ".dom-featured"
+          ).remove(), i.show().addClass("animated fadeInUp");
+        else {
+          i.hide();
+          var s = 0;
+          e(".dom-featured").remove(), e(
+            "#portfolio-intro"
+          ).hide(), e.each(i, function(i, a) {
+            if (e(a).hasClass(t)) {
+              if (0 === s) return (o = a), void s++;
+              e(a).show().addClass("animated fadeInUp");
             }
-            $(val).show().addClass('animated fadeInUp');
-          }
-        });
-
-        //Show the first item as featured
-        var restult = $(first_portfolio).clone();
-        restult
-          .removeClass('col-lg-4 col-sm-6 rex-portfolio-item animated fadeInUp')
-          .addClass('row rex-featured-portfolio dom-featured animated fadeIn')
-          .insertBefore( '#rex-portfolios' );
-
-        moveH(restult)
-          .show()
-          .closest('figure.rex-featured-portfolio.dom-featured')
-            .find('img')
-            .addClass('col-md-6')
-            .next('figcaption').removeClass('animated zoomIn').addClass('col-md-6').show();
-
-      }
-    }); // end click
-
-    // Disable Portfolio Hover Effect for Touch Devices;
-    if (Modernizr.touch){
-      $.each($('#rex-portfolios figure'), function() {
-        $(this).find('figcaption').hide();
-        $(this).find('figcaption img').css('transform', 'none');
-      });
-      $('div.owl-buttons').hide();
-    }
-    /**
-     * Portfolio Modal
-     */
-    $('#rex-portfolios').on('click', 'figure.rex-portfolio-item', function(event) {
-      event.preventDefault();
-
-      var img = $(this).find('img').attr('src');
-      var caption = $(this).find('figcaption').html();
-
-      var modal = '';
-      modal +='<figure class="rex-modal animated fadeIn rex-effect-1" id="modal-1">';
-        modal +='<div class="rex-content">';
-
-          modal += '<img class="img-responsive col-md-6" src="'+img+'">';
-          modal += '<figcaption class="col-md-6 rex-modal-figcaption">'+caption+'</figcaption>';
-
-
-          modal +='<button onclick="removeModal()" class="rex-close-modal"><i class="fa fa-times"></i></button>';
-        modal +='</div>';
-      modal +='</figure>';
-      modal +='<div class="rex-overlay"></div>';
-      // var ofSet = $(this).position().top - 168;// - $(window).scrollTop();
-      var ofSet = window.scrollY + 100;
-      $(modal).insertBefore('#portfolio-intro').css('top',  ofSet);
-      $('.rex-modal').toggleClass('rex-show');
-    });
-
-    // Modal Hide on outside click.
-    $('body').on( 'click', function() {
-
-      // Hide the Portfolio Pop-UP on Outside click;
-      $('div.rex-overlay').on('click', function() {
-        if ($('figure.rex-modal').length) {
-          $('.rex-modal').removeClass('rex-show').remove();
-          $('.rex-overlay').remove();
+          });
+          var r = e(o).clone();
+          r
+            .removeClass(
+              "col-lg-4 col-sm-6 rex-portfolio-item animated fadeInUp"
+            )
+            .addClass("row rex-featured-portfolio dom-featured animated fadeIn")
+            .insertBefore("#rex-portfolios"), moveH(r)
+            .show()
+            .closest("figure.rex-featured-portfolio.dom-featured")
+            .find("img")
+            .addClass("col-md-6")
+            .next("figcaption")
+            .removeClass("animated zoomIn")
+            .addClass("col-md-6")
+            .show();
         }
+      }
+    ), Modernizr.touch &&
+      (
+        e.each(e("#rex-portfolios figure"), function() {
+          e(this)
+            .find("figcaption")
+            .hide(), e(this).find("figcaption img").css("transform", "none");
+        }),
+        e("div.owl-buttons").hide()
+      ), e("#rex-portfolios").on("click", "figure.rex-portfolio-item", function(
+      i
+    ) {
+      i.preventDefault();
+      var a = "";
+      (a +=
+        '<figure class="rex-modal animated fadeIn rex-effect-1" id="modal-1">'), (a +=
+        '<div class="rex-content">'), (a +=
+        '<img class="img-responsive col-md-6" src="' +
+        e(this).find("img").attr("src") +
+        '">'), (a +=
+        '<figcaption class="col-md-6 rex-modal-figcaption">' +
+        e(this).find("figcaption").html() +
+        "</figcaption>"), (a +=
+        '<button onclick="removeModal()" class="rex-close-modal"><i class="fa fa-times"></i></button>'), (a +=
+        "</div>"), (a += "</figure>"), (a += '<div class="rex-overlay"></div>');
+      var o = window.scrollY + 100;
+      e(a).insertBefore("#portfolio-intro").css("top", o), e(
+        ".rex-modal"
+      ).toggleClass("rex-show");
+    }), e("body").on("click", function() {
+      e("div.rex-overlay").on("click", function() {
+        e("figure.rex-modal").length &&
+          (
+            e(".rex-modal").removeClass("rex-show").remove(),
+            e(".rex-overlay").remove()
+          );
       });
-
-    });
-
-  /**
-   * Modify navigation href on single pages
-   */
-  if( $('body').hasClass('single') ) {
-    var $links = $('.flexnav li a');
-    $links.each(function () {
-      var currentHref = $(this).attr('href');
-      $(this).attr('href', './' + currentHref);
-    });
-  }
-
-
-
-  });// DOM Ready
-
-}(jQuery)); // IIFE
+    }), e("body").hasClass("single") &&
+      e(".flexnav li a").each(function() {
+        var i = e(this).attr("href");
+        e(this).attr("href", "./" + i);
+      });
+  });
+})(jQuery);
