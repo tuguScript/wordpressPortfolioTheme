@@ -19,7 +19,8 @@ get_header()
     <!-- Add your site or application content here -->
 
     <header class="header-two">
-    <h1 id="test">hi</h1>
+        <h1 id="test">hi</h1>
+        <div id="root"></div>
         <div class="hero">
             <div class="hero-inner">
                 <a href="" class="hero-logo"><img src="<?php bloginfo('template_url'); ?>/images/profile.png" alt="Logo Image" width="152" height="152"></a>
@@ -317,124 +318,76 @@ get_header()
                     <div class="active-section" id="blog">
                         <section class="section-block">
                             <h4 class="title">Blog Post</h4>
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <div id="rex-blog-slider">
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="thumbnail rex-blog-section">
-                                                <img src="http://placehold.it/312x184" alt="...">
-                                                <div class="rex-caption">
-                                                    <a href="single-blog.html">
-                                                        <h6>Standard blog post with image </h6>
-                                                    </a>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur nos trud exercitation ullamco.</p>
-                                                    <a href="javascript:void(0)" class="">Read more</a>
-                                                </div>
-                                                <div class="post-meta">
-                                                    <a href="javascript:void(0)"><i class="fa fa-share-alt"></i></a>
-                                                    <a href="javascript:void(0)"><i class="fa fa-comment"></i>20</a>
-                                                    <a href="javascript:void(0)"><i class="fa fa-heart"></i>65</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="thumbnail rex-blog-section">
-                                                <img src="http://placehold.it/312x184" alt="...">
-                                                <div class="rex-caption">
-                                                    <a href="single-blog.html">
-                                                        <h6>Standard blog post with image </h6>
-                                                    </a>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur nos trud exercitation ullamco.</p>
-                                                    <a href="javascript:void(0)" class="">Read more</a>
-                                                </div>
-                                                <div class="post-meta">
-                                                    <a href="javascript:void(0)"><i class="fa fa-share-alt"></i></a>
-                                                    <a href="javascript:void(0)"><i class="fa fa-comment"></i>20</a>
-                                                    <a href="javascript:void(0)"><i class="fa fa-heart"></i>65</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="thumbnail rex-blog-section">
-                                                <img src="http://placehold.it/312x184" alt="...">
-                                                <div class="rex-caption">
-                                                    <a href="single-blog.html">
-                                                        <h6>Standard blog post with image </h6>
-                                                    </a>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur nos trud exercitation ullamco.</p>
-                                                    <a href="javascript:void(0)" class="">Read more</a>
-                                                </div>
-                                                <div class="post-meta">
-                                                    <a href="javascript:void(0)"><i class="fa fa-share-alt"></i></a>
-                                                    <a href="javascript:void(0)"><i class="fa fa-comment"></i>20</a>
-                                                    <a href="javascript:void(0)"><i class="fa fa-heart"></i>65</a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <div id="blogPost"></div>
                                     </div>
                                 </div>
                             </div>
-                        </section>
                     </div>
+                    </section>
+                </div>
 
-                    <br>
-                    <br>
-                    <div class="active-section">
-                        <section class="section-block">
-                            <div class="tcontainer">
-                                <div class="emailForm">
-                                    <h4 class="title">Feel Free To Contact Me</h4>
-                                    <form class="contact-forms" id="contact-forms">
+                <br>
+                <br>
+                <div class="active-section">
+                    <section class="section-block">
+                        <div class="tcontainer">
+                            <div class="emailForm">
+                                <h4 class="title">Feel Free To Contact Me</h4>
+                                <form class="contact-forms" id="contact-forms">
 
 
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <input name="email" type="email" class="form-control" id="email" placeholder="Email">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <textarea id="message" name="text" class="form-control" rows="6" placeholder="Message"></textarea>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input name="email" type="email" class="form-control" id="email" placeholder="Email">
                                             </div>
                                         </div>
-                                    </form>
-                                    <div class="contact-btn">
-                                        <a class="btn btn-default rex-primary-btn-effect-No dark-color" href="javascript:void(0)" role="button"><span>Cancel</span></a>
-                                        <a class="btn btn-default rex-primary-btn-effect" onclick="sendMail(this.text)" role="button">Send</a>
+                                        <div class="col-md-12">
+                                            <textarea id="message" name="text" class="form-control" rows="6" placeholder="Message"></textarea>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="divBlock-2">
-
-                                    <h4 class="title">Contact Information</h4>
-                                    <div class="">
-                                        <ul class="list-group">
-                                            <li class="list-group-item">
-                                                <h6>Phone</h6>
-                                                <a href="tel:+5103840214">+(510) 384 0212 </a>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <h6>Email</h6>
-                                                <a href="mailto:tuguscript@gmail.com">tuguscript@gmail.com</a>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <h6>Find me on</h6>
-                                                <p>github, twitter</p>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                </form>
+                                <div class="contact-btn">
+                                    <a class="btn btn-default rex-primary-btn-effect-No dark-color" href="javascript:void(0)" role="button"><span>Cancel</span></a>
+                                    <a class="btn btn-default rex-primary-btn-effect" onclick="sendMail(this.text)" role="button">Send</a>
                                 </div>
                             </div>
-                        </section>
-                    </div>
-                    <footer>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p>&copy; Copyright 2017 Tuguldur</p>
+                            <div class="divBlock-2">
+
+                                <h4 class="title">Contact Information</h4>
+                                <div class="">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <h6>Phone</h6>
+                                            <a href="tel:+5103840214">+(510) 384 0212 </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <h6>Email</h6>
+                                            <a href="mailto:tuguscript@gmail.com">tuguscript@gmail.com</a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <h6>Find me on</h6>
+                                            <p>github, twitter</p>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </footer>
+                    </section>
+                </div>
+                <footer>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>&copy; Copyright 2017 Tuguldur</p>
+                        </div>
+                    </div>
+                </footer>
 
-                    <?php
+                <?php
 	get_footer();
 ?>
 
