@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Card from "./Card";
 
-const url = "http://tugi.io/wp-json/wp/v2/posts?per_page=3&author=1";
-
+const url =
+  "https://tugi.000webhostapp.com/wp-json/wp/v2/posts?per_page=3&author=1";
 export default class App extends Component {
   constructor() {
     super();
@@ -31,7 +31,7 @@ export default class App extends Component {
                 data: data
               }
             });
-            console.log('data loaded', this.state)
+            console.log("url: ", url);
           } else {
             return Promise.reject({
               status: response.status,
@@ -43,13 +43,12 @@ export default class App extends Component {
       .catch(error => console.log("error:", error));
   }
   render() {
-    console.log(this.state)
     let posts = this.state.posts.data.map((post, i) => {
-      return <Card key={i} post={post}/>
-    })
+      return <Card key={i} post={post} />;
+    });
     return (
       <div>
-        {posts}
+        {" "}{posts}{" "}
       </div>
     );
   }

@@ -19,7 +19,6 @@ get_header()
     <!-- Add your site or application content here -->
 
     <header class="header-two">
-        <h1 id="test">hi</h1>
         <div id="root"></div>
         <div class="hero">
             <div class="hero-inner">
