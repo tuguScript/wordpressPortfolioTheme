@@ -18,15 +18,16 @@ get_header()
 
     <!-- Add your site or application content here -->
 
+    <nav class="navigation">
+        <ul>
+            <li><a href="#about">about</a></li>
+            <li><a href="#skills">skills</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">contact</a></li>
+        </ul>
+    </nav>
     <header class="header-two">
-        <nav>
-            <ul>
-                <li><a href="#section1">section 1</a></li>
-                <li><a href="#section2">section 2</a></li>
-                <li><a href="#section3">section 3</a></li>
-                <li><a href="#section4">section 4</a></li>
-            </ul>
-        </nav>
         <div class="hero">
             <div class="hero-inner">
                 <a href="" class="hero-logo"><img src="<?php bloginfo('template_url'); ?>/images/profile.png" alt="Logo Image" width="152" height="152"></a>
@@ -34,10 +35,9 @@ get_header()
                     <h1><span>Hey, I’m</span> Tugi</h1>
                     <h6>Photographer, Web Developer, Mobile app developer, Web Designer, Speaker, Writer</h6>
                     <div class="media-link">
+                        <a href="https://github.com/tuguScript"><i class="fa fa-github-square"></i></a>
                         <a href="https://twitter.com/tuguldur_01"><i class="fa fa-twitter-square"></i></a>
-                        <a href="https://www.facebook.com/Tuguldur01"><i class="fa fa-facebook-square"></i></a>
                         <a href="https://www.linkedin.com/in/tuguldurtech/"><i class="fa fa-linkedin-square"></i></a>
-                        <a href="https://www.instagram.com/instatuguldur/"><i class="fa fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -333,65 +333,67 @@ get_header()
                                 </div>
                             </div>
                     </div>
-                    </section>
-                </div>
-
-                <br>
-                <br>
-                <div class="active-section">
-                    <section class="section-block">
-                        <div class="tcontainer">
-                            <div class="emailForm">
-                                <h4 class="title">Feel Free To Contact Me</h4>
-                                <form class="contact-forms" id="contact-forms">
+                    <br>
+                    <br>
+                    <div class="active-section" id="contact">
+                        <section class="section-block">
+                            <div class="tcontainer">
+                                <div class="emailForm">
+                                    <h4 class="title">Feel Free To Contact Me</h4>
+                                    <form class="contact-forms" id="contact-forms">
 
 
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <input name="email" type="email" class="form-control" id="email" placeholder="Email">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input name="email" type="email" class="form-control" id="email" placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <textarea id="message" name="text" class="form-control" rows="6" placeholder="Message"></textarea>
                                             </div>
                                         </div>
-                                        <div class="col-md-12">
-                                            <textarea id="message" name="text" class="form-control" rows="6" placeholder="Message"></textarea>
-                                        </div>
+                                    </form>
+                                    <div class="contact-btn">
+                                        <a class="btn btn-default rex-primary-btn-effect-No dark-color" href="javascript:void(0)" role="button"><span>Cancel</span></a>
+                                        <a class="btn btn-default rex-primary-btn-effect" onclick="sendMail(this.text)" role="button">Send</a>
                                     </div>
-                                </form>
-                                <div class="contact-btn">
-                                    <a class="btn btn-default rex-primary-btn-effect-No dark-color" href="javascript:void(0)" role="button"><span>Cancel</span></a>
-                                    <a class="btn btn-default rex-primary-btn-effect" onclick="sendMail(this.text)" role="button">Send</a>
+                                </div>
+                                <div class="divBlock-2">
+
+                                    <h4 class="title">Contact Information</h4>
+                                    <div class="">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <h6>Phone</h6>
+                                                <a href="tel:+5103840214">+(510) 384 0212 </a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <h6>Email</h6>
+                                                <a href="mailto:tuguscript@gmail.com">tuguscript@gmail.com</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <h6>Find me on</h6>
+                                                <p>github, twitter</p>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="divBlock-2">
-
-                                <h4 class="title">Contact Information</h4>
-                                <div class="">
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                            <h6>Phone</h6>
-                                            <a href="tel:+5103840214">+(510) 384 0212 </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <h6>Email</h6>
-                                            <a href="mailto:tuguscript@gmail.com">tuguscript@gmail.com</a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <h6>Find me on</h6>
-                                            <p>github, twitter</p>
-                                        </li>
-                                    </ul>
-                                </div>
+                        </section>
+                    </div>
+                    <footer>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>&copy; Copyright 2017 Tuguldur</p>
                             </div>
                         </div>
+                    </footer>
                     </section>
                 </div>
-                <footer>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p>&copy; Copyright 2017 Tuguldur</p>
-                        </div>
-                    </div>
-                </footer>
+
+
+
 
                 <?php
 	get_footer();

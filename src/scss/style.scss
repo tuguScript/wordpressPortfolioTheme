@@ -1,10 +1,10 @@
 /*!
     Theme Name: tugu Theme
-    Theme URI: http://www.sitepoint.com/
+    Theme URI: http://tugi.io
     Description: Demonstration theme
     Version: 1.0.0
-    Author: Craig Buckler (@craigbuckler)
-    Author URI: http://www.sitepoint.com/
+    Author: Tuguldur
+    Author URI: http://tugi.io
     Tags: Gulp
 
     License: MIT
@@ -17,6 +17,42 @@
 @import "font-awesome.min.scss";
 // @import "owl.carousel.scss";
 // @import "owl.transitions.scss";
+
+.navigation ul li a {
+  color: #fff
+}
+
+nav {
+  margin: 0;
+  padding: 0;
+  background: #4dbfd9;
+  overflow: hidden;
+  
+  ul {
+    list-style: none;
+    text-align: center;
+    overflow: hidden;
+    
+    li {
+      display: inline-block;
+      margin: 0 -4px;
+      padding: 20px 0;
+
+      a {
+        padding: 5px 20px;
+        // font: normal 1em/normal @font-body;
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        
+        &:hover,
+        &.active {
+          background: #245269;
+        }
+      }
+    }
+  }
+}
 
 #footer {
   display: none;
@@ -6401,10 +6437,10 @@ div.loading img {
     font-weight: 300; }
 
 .header-two, .header-three {
+  // background-image: url('/wordpress/wp-content/themes/reacttheme/images/1.jpg');
+  background-image: url('/wp-content/themes/reacttheme/images/1.jpg');
   padding-top: 30px;
-  background: url("http://placehold.it/1919x504");
-  background: url("http://placehold.it/1919x504");
-  background-color: #4dbfd9;
+  // background-color: #4dbfd9;
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover; }
@@ -6450,9 +6486,7 @@ div.loading img {
   padding-bottom: 60px;
   text-align: center; }
 
-nav {
-  min-height: 55px;
-  box-shadow: 0.139px 0.99px 3px 1px rgba(0, 1, 1, 0.118); }
+
 
 .one-page .active .navicon {
   color: transparent !important;
