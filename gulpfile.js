@@ -1,6 +1,5 @@
 // Gulp.js configuration
 "use strict";
-
 const // source and build folders
   dir = {
     src: "src/",
@@ -18,8 +17,10 @@ const // source and build folders
   stripdebug = require("gulp-strip-debug"),
   webpack_stream = require("webpack-stream"),
   webpack_config = require("./webpack.config.js"),
-  webpack2 = require('webpack'),
+  webpack2 = require("webpack"),
   uglify = require("gulp-uglify");
+
+var del = require("del");
 // Browser-sync
 var browsersync = false;
 
@@ -36,7 +37,7 @@ gulp.task("php", () => {
 
 // image settings
 const images = {
-  src: dir.src + "images/**/*",
+  src: dir.src + "img/**/*",
   build: dir.build + "images/"
 };
 
@@ -93,7 +94,7 @@ const js = {
 
 // JavaScript processing
 gulp.task("js", () => {
-  return ( 
+  return (
     gulp
       .src(js.src)
       .pipe(webpack_stream(webpack_config, webpack2))
@@ -106,12 +107,15 @@ gulp.task("js", () => {
   );
 });
 
-// gulp.task("webpack", () => {
-//   return webpack_stream(webpack_config).pipe(gulp.dest(js.build));
-// });
+// Fonts
+gulp.task("fonts", function() {
+  return gulp
+    .src([dir.src + "fonts/**/*"])
+    .pipe(gulp.dest(dir.build + "fonts/"));
+});
 
 // run all tasks
-gulp.task("build", ["php", "css", "js"]);
+gulp.task("build", ["php", "css", "js", "fonts"]);
 
 // Browsersync options
 const syncOpts = {
@@ -151,3 +155,8 @@ gulp.task("watch", ["browsersync"], () => {
 
 // default task
 gulp.task("default", ["build", "watch"]);
+
+// Clean
+gulp.task("clean", function() {
+  return gulp.src(dir.build, { read: false }).pipe(clean());
+});

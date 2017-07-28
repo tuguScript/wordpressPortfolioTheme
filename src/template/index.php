@@ -19,7 +19,14 @@ get_header()
     <!-- Add your site or application content here -->
 
     <header class="header-two">
-        <div id="root"></div>
+        <nav>
+            <ul>
+                <li><a href="#section1">section 1</a></li>
+                <li><a href="#section2">section 2</a></li>
+                <li><a href="#section3">section 3</a></li>
+                <li><a href="#section4">section 4</a></li>
+            </ul>
+        </nav>
         <div class="hero">
             <div class="hero-inner">
                 <a href="" class="hero-logo"><img src="<?php bloginfo('template_url'); ?>/images/profile.png" alt="Logo Image" width="152" height="152"></a>
