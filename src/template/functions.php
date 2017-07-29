@@ -1,4 +1,5 @@
 <?php 
+add_theme_support( 'post-thumbnails' ); 
 function my_assets() {
 	wp_enqueue_style( 'style', get_stylesheet_uri());
 	
