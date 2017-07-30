@@ -2,7 +2,8 @@ import "./script.js";
 import "./owl.carousel.min.js";
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import App from './components/Blog/App';
+import Work from './components/Work/Work';
 
 ReactDOM.render(
   <App />
@@ -10,4 +11,8 @@ ReactDOM.render(
   document.getElementById('blogPost')
 );
 
-console.log(process.env.NODE_ENV)
+ReactDOM.render(
+  <Work />
+  ,
+  document.getElementById('work')
+);

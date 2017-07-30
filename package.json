@@ -19,6 +19,7 @@
     "gulp-strip-debug": "^1.1.0",
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
+    "halogen": "^0.2.0",
     "jquery": "^3.2.1",
     "path": "^0.12.7",
     "postcss-assets": "^4.1.0",
