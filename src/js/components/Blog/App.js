@@ -46,14 +46,15 @@ export default class App extends Component {
       })
       .catch(error => console.log("error:", error));
   }
+
   render() {
     let posts = this.state.posts.data.map((post, i) => {
       return <Card key={i} post={post} />;
     });
     if (this.state.posts.loading) {
       return (
-        <div style={{position: 'absolute', left: '40%'}}>
-          <Loader color="#4dbfd9" size="20px" margin="4px"/>
+        <div style={{ position: "absolute", left: "40%" }}>
+          <Loader color="#4dbfd9" size="20px" margin="4px" />
         </div>
       );
     }
