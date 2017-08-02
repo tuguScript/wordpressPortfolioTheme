@@ -4,6 +4,24 @@
     <?php
 get_header()
 ?>
+    <script>
+        function sendMail() {
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+            if (email !== '' && message !== '') {
+                jQuery.ajax({
+                    url: "https://formspree.io/tuguscript@gmail.com",
+                    method: "POST",
+                    data: {
+                        email: email,
+                        message: message
+                    },
+                    dataType: "json"
+                });
+            }
+
+        }
+    </script>
 </head>
 
 <body class="single">
@@ -220,7 +238,7 @@ get_header()
                                     </form>
                                     <div class="contact-btn">
                                         <a class="btn btn-default rex-primary-btn-effect-No dark-color" href="javascript:void(0)" role="button"><span>Cancel</span></a>
-                                        <a class="btn btn-default rex-primary-btn-effect" onclick="sendMail(this.text)" role="button">Send</a>
+                                        <a class="btn btn-default rex-primary-btn-effect" onclick="sendMail()" role="button">Send</a>
                                     </div>
                                 </div>
                                 <div class="divBlock-2">

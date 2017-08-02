@@ -18,6 +18,32 @@
 // @import "owl.carousel.scss";
 // @import "owl.transitions.scss";
 
+.moveUp {
+  animation: moveUp 0.5s ease-out 1
+}
+
+.moveDown {
+  animation: moveDown 1s ease-out 1
+}
+
+@keyframes moveUp{
+  0% {
+    transform:translateY(100%);
+  }
+  100% {
+    transform:translateY(0px);
+  }
+}
+
+@keyframes moveDown{
+  0% {
+    transform:translateY(0px);
+  }
+  100% {
+    transform:translateY(100%);
+  }
+}
+
 .modal-close {
   position: fixed;
 }

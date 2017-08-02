@@ -24,7 +24,6 @@ export default class Card extends Component {
   handleOpenModal() {
     this.setState({ showModal: true });
     document.body.style.overflow = "hidden";
-    document.getElementsByClassName('modal-container').style.overflow = 'auto'
   }
   handleCloseModal() {
     this.setState({ showModal: false });
