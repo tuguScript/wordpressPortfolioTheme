@@ -18,6 +18,28 @@
 // @import "owl.carousel.scss";
 // @import "owl.transitions.scss";
 
+.gallery {
+  width: 100%;
+  margin: 0 auto;
+  // padding: 5px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.gallery > div {
+  flex: 1;
+  width: 30vw;
+  // padding: 5px;
+}
+
+.gallery > div > img {
+  cursor: pointer;
+  display: block;
+  min-width: 200px;
+  text-align: center;
+}
+
 .moveUp {
   animation: moveUp 0.5s ease-out 1
 }

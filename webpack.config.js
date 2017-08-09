@@ -9,7 +9,7 @@ module.exports = {
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify("development")
     }),
-    new webpack.optimize.UglifyJsPlugin()
+    // new webpack.optimize.UglifyJsPlugin()
   ],
   output: {
     filename: "bundle.js",
