@@ -44,7 +44,7 @@ export default class Card extends Component {
         >
           <button onClick={() => this.handleCloseModal()}>Close Modal</button>
         </Modal>
-        <div className="col-sm-6 col-md-4">
+        <div className="col-sm-6 col-md-4" style={{cursor: 'pointer'}}>
           <div
             className="thumbnail rex-blog-section"
             onClick={() => this.handleOpenModal()}
@@ -59,19 +59,14 @@ export default class Card extends Component {
               height="184"
             />
             <div className="rex-caption">
-              <a href="single-blog.html">
                 <h6>
                   {this.props.post.title.rendered}
                 </h6>
-              </a>
               <div
                 dangerouslySetInnerHTML={{
                   __html: this.props.post.excerpt.rendered
                 }}
               />
-              <a href="javascript:void(0)" className>
-                Read more
-              </a>
             </div>
             <div className="post-meta">
               <a href="javascript:void(0)">
