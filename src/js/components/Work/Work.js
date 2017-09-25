@@ -1,6 +1,98 @@
 import React, { Component } from "react";
 import Lightbox from "react-images";
 import Loader from "halogen/PulseLoader";
+import {
+  Card,
+  CardActions,
+  CardHeader,
+  CardMedia,
+  CardTitle,
+  CardText
+} from "material-ui/Card";
+import FlatButton from "material-ui/FlatButton";
+
+class ContentWeb extends Component {
+  constructor() {
+    super();
+    this.state = {
+      loading: true,
+      data: [],
+      status: null
+    };
+  }
+  componentDidMount() {
+    let url = "https://tugi.000webhostapp.com/wp-json/wp/v2/posts?categories=2";
+    let init = {
+      credentials: "include",
+      mode: "cors",
+      headers: {
+        Accept: "application/json"
+      }
+    };
+    fetch(url, init)
+      .then(response => {
+        response.json().then(data => {
+          if (response.ok) {
+            console.log(data);
+            this.setState({
+              loading: false,
+              data: data,
+              status: response.status
+            });
+          } else {
+            this.setState({
+              loading: false,
+              data: data,
+              status: response.status
+            });
+          }
+        });
+      })
+      .catch(error => console.log("error:", error));
+  }
+  render() {
+    const styles = {
+      root: {
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-around"
+      },
+      item: {
+        flex: 1,
+        maxWidth: "400px",
+        padding: "10px"
+      }
+    };
+    let item = this.state.data.map((data, i) => {
+      return (
+        <div style={styles.item} keu={i}>
+          <Card>
+            <CardMedia>
+              <img
+                src={data.better_featured_image.source_url}
+                style={{
+                  maxHeight: "300px",
+                  backgroundSize: "100% 100%",
+                  backgroundSize: "cover"
+                }}
+              />
+            </CardMedia>
+            <CardText>
+              {data.title.rendered}
+            </CardText>
+          </Card>
+        </div>
+      );
+    });
+    return (
+      <div style={styles.root}>
+        {this.state.loading
+          ? <Loader color="#4dbfd9" size="20px" margin="4px" />
+          : item}
+      </div>
+    );
+  }
+}
 
 export default class Work extends Component {
   constructor() {
@@ -118,7 +210,7 @@ export default class Work extends Component {
 
     let contentMobile = <div>mobile</div>;
 
-    let contentWeb = <div>Web</div>;
+    let contentWeb = <ContentWeb />;
 
     return (
       <div className="active-section" id="work">
@@ -133,12 +225,6 @@ export default class Work extends Component {
                     onClick={() => this.changeTab("Photography")}
                   >
                     Photography
-                  </div>
-                  <div
-                    className="btn btn-default filter"
-                    onClick={() => this.changeTab("Mobile")}
-                  >
-                    Mobile Developemnt
                   </div>
                   <div
                     className="btn btn-default filter"
