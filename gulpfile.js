@@ -1,3 +1,5 @@
+// css purify
+var purify = require('gulp-purifycss');
 // Gulp.js configuration
 "use strict";
 const // source and build folders
@@ -81,13 +83,14 @@ gulp.task("css", ["images"], () => {
     .src(css.src)
     .pipe(sass(css.sassOpts))
     .pipe(postcss(css.processors))
+    .pipe(purify(['./src/**/*.js', './src/**/*.php']))    
     .pipe(gulp.dest(css.build))
     .pipe(browsersync ? browsersync.reload({ stream: true }) : gutil.noop());
 });
 
 // JavaScript settings
 const js = {
-  src: dir.src + "js/**/*",
+  src: dir.src + "/**/*",
   build: dir.build + "js/",
   filename: "app.js"
 };

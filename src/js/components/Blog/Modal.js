@@ -10,11 +10,6 @@ export default class Modal extends Component {
   closeRequest() {
     this.props.closeRequest();
   }
-  componentDidMount() {
-    this.setState({ postContent: this.props.post }, () => {
-      console.log(this.state);
-    });
-  }
   render() {
     const post = this.props.post;
     const styles = {
@@ -33,9 +28,11 @@ export default class Modal extends Component {
     return (
       <div
         className={
-          this.props.showModal
-            ? "modal-container moveUp"
-            : "modal-container moveDown"
+          this.props.showModal ? (
+            "modal-container moveUp"
+          ) : (
+            "modal-container moveDown"
+          )
         }
         style={styles.modalContainer}
       >
@@ -64,9 +61,7 @@ export default class Modal extends Component {
                   >
                     {this.props.post.title.rendered}
                   </h4>
-                  <h4 className="text-left">
-                    {post.date.substring(0, 10)}
-                  </h4>
+                  <h4 className="text-left">{post.date.substring(0, 10)}</h4>
                   <hr />
                   <div
                     dangerouslySetInnerHTML={{

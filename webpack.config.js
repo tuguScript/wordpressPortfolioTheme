@@ -3,19 +3,19 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const webpack = require("webpack");
 
 module.exports = {
-  entry: "./src/js/app.js",
+  entry: "./src/app.js",
   plugins: [
     // new CleanWebpackPlugin(["dist"]),
     new webpack.DefinePlugin({
-      "process.env.NODE_ENV": JSON.stringify("production")
-    }),
-    new webpack.optimize.UglifyJsPlugin()
+      "process.env.NODE_ENV": JSON.stringify("development")
+    })
+    // new webpack.optimize.UglifyJsPlugin()
   ],
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "./src/js/build")
+    path: path.resolve(__dirname, "./src/build")
   },
-  devtool: "inline-source-map",
+  devtool: "source-map",
   module: {
     rules: [
       {
