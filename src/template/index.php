@@ -76,7 +76,7 @@ get_header()
                                 <br>
                                 <div class="about-section">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-sm-6 col-md-6">
                                             <h4>Who?</h4>
                                             <div class="about-content">
                                                 <p>
@@ -85,7 +85,7 @@ get_header()
                                                 </p>
                                             </div>
                                         </div>
-                                        <div class="col-md-5 col-md-offset-1">
+                                        <div class="col-sm-6 col-md-5 col-md-offset-1">
                                             <h4>Basic Information</h4>
                                             <ul class="list-group">
                                                 <li class="list-group-item">
