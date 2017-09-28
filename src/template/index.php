@@ -5,22 +5,26 @@
 get_header()
 ?>
     <script>
-        function sendMail() {
-            var email = document.getElementById('email').value;
-            var message = document.getElementById('message').value;
-            if (email !== '' && message !== '') {
-                jQuery.ajax({
-                    url: "https://formspree.io/tuguscript@gmail.com",
-                    method: "POST",
-                    data: {
-                        email: email,
-                        message: message
-                    },
-                    dataType: "json"
-                });
-            }
-
-        }
+         function sendMail() {
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
+            axios({
+              method: "post",
+              url: "https://formspree.io/tuguscript@gmail.com",
+              data: {
+                email,
+                message
+              }
+            })
+              .then(res => {
+                //   __MaterialUI notify hiine
+                document.getElementById("email").value = "";
+                document.getElementById("message").value = "";
+              })
+              .catch(e => {
+                console.log(e);
+              });
+          }
     </script>
 </head>
 
@@ -39,7 +43,6 @@ get_header()
     <nav class="navigation">
         <ul>
             <li><a href="#about">about</a></li>
-            <li><a href="#skills">skills</a></li>
             <li><a href="#work">Work</a></li>
             <li><a href="#blog">Blog</a></li>
             <li><a href="#contact">contact</a></li>
@@ -76,11 +79,9 @@ get_header()
                                         <div class="col-md-6">
                                             <h4>Who?</h4>
                                             <div class="about-content">
-                                                <span class="active-color">Hello, I am Tuguldur, Photographer, Web Developer, Mobile app developer, Web Designer, Speaker, Writer</span>
                                                 <p>
-                                                    Hey what's up? Full name's Tuguldur but everyone calls me Tugi. I'm a front-end developer, currently living in Alameda, California.
-                                                    Fluent in HTML5 CSS3 JS Sass Less and ReactJS. I know my way around NodeJS
-                                                    and I've recently started experimenting with REST APIs using ExpressJS.
+                                                    Hey what's up? Full name's Tuguldur but everyone calls me Tugi. I'm a front-end developer, currently living in San Francisco, California.
+                                                    Fluent in HTML5, CSS3, JS, Sass, ReactJS, NodeJS and Ruby.
                                                 </p>
                                             </div>
                                         </div>
@@ -90,20 +91,10 @@ get_header()
                                                 <li class="list-group-item">
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                            <h6>Address:</h6>
-                                                        </div>
-                                                        <div class="col-md-8">
-                                                            <p>lorem address</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <div class="row">
-                                                        <div class="col-md-4">
                                                             <h6>Date of Birth:</h6>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <p>6 December, 9999</p>
+                                                            <p>6 December, 1995</p>
                                                         </div>
                                                     </div>
                                                 </li>
@@ -145,58 +136,6 @@ get_header()
                         </div>
                     </div>
 
-                    <br>
-                    <br>
-                    <!-- skill-section -->
-                    <div id="skills" class="active-section">
-                        <div class="section-block skill-section">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="skill-content">
-                                        <h4 class="title">Skills</h4>
-
-                                        <h6>NodeJS</h6>
-                                        <div class="skillbar clearfix " data-percent="65%">
-                                            <div class="skillbar-bar"></div>
-                                            <div class="skill-bar-percent">65%</div>
-                                        </div>
-                                        <!-- End Skill Bar -->
-
-                                        <h6>ReactJS</h6>
-                                        <div class="skillbar clearfix " data-percent="70%">
-                                            <div class="skillbar-bar"></div>
-                                            <div class="skill-bar-percent">70%</div>
-                                        </div>
-                                        <!-- End Skill Bar -->
-                                        <h6>React Native</h6>
-                                        <div class="skillbar clearfix " data-percent="70%">
-                                            <div class="skillbar-bar"></div>
-                                            <div class="skill-bar-percent">70%</div>
-                                        </div>
-
-                                        <h6>Adobe Photoshop</h6>
-                                        <div class="skillbar clearfix " data-percent="80%">
-                                            <div class="skillbar-bar"></div>
-                                            <div class="skill-bar-percent">90%</div>
-                                        </div>
-                                        <!-- End Skill Bar -->
-
-                                        <h6>Photography</h6>
-                                        <div class="skillbar clearfix " data-percent="50%">
-                                            <div class="skillbar-bar"></div>
-                                            <div class="skill-bar-percent">50%</div>
-                                        </div>
-                                        <!-- End Skill Bar -->
-
-                                        <!-- End Skill Bar -->
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <img class="img-responsive" src="http://placehold.it/554x499" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <br>
                     <br>
 
@@ -280,5 +219,5 @@ get_header()
                 <?php
 	get_footer();
 ?>
-
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </html>

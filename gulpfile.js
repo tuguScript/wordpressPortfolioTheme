@@ -18,7 +18,8 @@ const // source and build folders
   webpack_stream = require("webpack-stream"),
   webpack_config = require("./webpack.config.js"),
   webpack2 = require("webpack"),
-  uglify = require("gulp-uglify");
+  uglify = require("gulp-uglify"),
+  purify = require("gulp-purifycss");
 
 var del = require("del");
 // Browser-sync
@@ -32,7 +33,10 @@ const php = {
 
 // copy PHP files
 gulp.task("php", () => {
-  return gulp.src(php.src).pipe(newer(php.build)).pipe(gulp.dest(php.build));
+  return gulp
+    .src(php.src)
+    .pipe(newer(php.build))
+    .pipe(gulp.dest(php.build));
 });
 
 // image settings
@@ -81,6 +85,7 @@ gulp.task("css", ["images"], () => {
     .src(css.src)
     .pipe(sass(css.sassOpts))
     .pipe(postcss(css.processors))
+    // .pipe(purify(['./src/js/**/*.js', './src/template/*.php']))    
     .pipe(gulp.dest(css.build))
     .pipe(browsersync ? browsersync.reload({ stream: true }) : gutil.noop());
 });
